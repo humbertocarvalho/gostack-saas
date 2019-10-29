@@ -7,6 +7,7 @@
 /**
  * Resourceful controller for interacting with teams
  */
+
 class TeamController {
   /**
    * Show a list of all teams.
@@ -17,19 +18,10 @@ class TeamController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
-  }
+  async index ({ auth }) {
+    const teams = await auth.user.teams().fetch()
 
-  /**
-   * Render a form to be used for creating a new team.
-   * GET teams/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+    return teams
   }
 
   /**
@@ -40,8 +32,7 @@ class TeamController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
-  }
+  async store ({ request, response }) {}
 
   /**
    * Display a single team.
@@ -52,20 +43,7 @@ class TeamController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-  }
-
-  /**
-   * Render a form to update an existing team.
-   * GET teams/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
+  async show ({ params, request, response, view }) {}
 
   /**
    * Update team details.
@@ -75,8 +53,7 @@ class TeamController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
-  }
+  async update ({ params, request, response }) {}
 
   /**
    * Delete a team with id.
@@ -86,8 +63,7 @@ class TeamController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy ({ params, request, response }) {}
 }
 
 module.exports = TeamController
