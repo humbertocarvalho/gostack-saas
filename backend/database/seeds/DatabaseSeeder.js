@@ -22,6 +22,12 @@ class DatabaseSeeder {
       password: '123456'
     })
 
+    await User.create({
+      name: 'Humberto de Carvalho',
+      email: 'humberto@gmail.com',
+      password: '123456'
+    })
+
     await user.teams().create({
       name: 'Rocketseat',
       user_id: user.id
